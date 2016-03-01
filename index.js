@@ -76,10 +76,6 @@ function Ball()
     }
 }
 
-buttonDraw();
-
-g_context.canvas.addEventListener('mousedown', checkMousePosition, false);
-
 function checkMousePosition(e)
 {
     // Check Start Button
@@ -92,7 +88,6 @@ function checkMousePosition(e)
         if ((e.offsetY > minValueOfStartButtonY) && (e.offsetY < maxValueOfStartButtonY))
         {
             startGame();
-			console.log("start");
         }
     }
     // Check Stop Button
@@ -105,7 +100,6 @@ function checkMousePosition(e)
         if ((e.offsetY > minValueOfStopButtonY) && (e.offsetY < maxValueOfStopButtonY))
         {
             stopGame();
-			console.log("stop");
         }
     }
 }
@@ -120,3 +114,6 @@ function stopGame()
     clearInterval(g_context.intervalId);
     g_context.lastTime = new Date();
 }
+
+buttonDraw();
+g_context.canvas.addEventListener('mousedown', checkMousePosition, false);
